@@ -1,1 +1,9 @@
 @import "bootstrap";
+@import "shared/footer.scss";
+@import "shared/navbar.scss";
+@import "videos.scss";
+
+.panel-main {
+  margin-top: 40px;
+  padding: 20px 10px;
+}
