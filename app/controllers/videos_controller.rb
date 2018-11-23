@@ -1,10 +1,11 @@
 class VideosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_video, only: [:show, :edit, :update, :destroy]
 
   # GET /videos
   # GET /videos.json
   def index
-    @videos = Video.all
+    @videos = Video.where(user: current_user)
   end
 
   # GET /videos/1
@@ -28,8 +29,8 @@ class VideosController < ApplicationController
 
     respond_to do |format|
       if @video.save
-        format.html { redirect_to @video, notice: 'Video was successfully created.' }
-        format.json { render :show, status: :created, location: @video }
+        format.html { redirect_to videos_path, notice: 'Video was successfully created.' }
+        format.json { render :index, status: :created, location: @video }
       else
         format.html { render :new }
         format.json { render json: @video.errors, status: :unprocessable_entity }
@@ -42,8 +43,8 @@ class VideosController < ApplicationController
   def update
     respond_to do |format|
       if @video.update(video_params)
-        format.html { redirect_to @video, notice: 'Video was successfully updated.' }
-        format.json { render :show, status: :ok, location: @video }
+        format.html { redirect_to videos_path, notice: 'Video was successfully updated.' }
+        format.json { render :index, status: :ok, location: @video }
       else
         format.html { render :edit }
         format.json { render json: @video.errors, status: :unprocessable_entity }
