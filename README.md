@@ -1,24 +1,2 @@
-# README
+[ ![Codeship Status for jeansflores/videoshare](https://app.codeship.com/projects/030463e0-d1bb-0136-3ad0-4295c3b24d40/status?branch=master)](https://app.codeship.com/projects/316239)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
