@@ -14,7 +14,7 @@
           <div class="card mb-4 shadow-sm">
             <%= link_to(video) do %>
               <video id="<%= "video_#{index}" %>" class="video-js vjs-default-skin video-off card-img-top"
-                controls preload="auto" width="600" height="225" data-setup="{}">
+                controls preload="auto" width="100%" height="225" data-setup="{}">
                 <source src="<%= video.url %>" type="application/vnd.apple.mpegurl"/>
               </video>
             <% end %>

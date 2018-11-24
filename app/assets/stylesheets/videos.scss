@@ -1,5 +1,13 @@
-.video-full {
-  height: 391px;
+@media screen and (max-width: 1400px) {
+  .video-full {
+    height: 390px;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .video-full {
+    height: 200px;
+  }
 }
 
 #views {

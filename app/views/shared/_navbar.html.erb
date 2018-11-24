@@ -4,15 +4,13 @@
       <i class="fas fa-video"></i>
       <span><strong>VideoShare</strong><span>
     </a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="d-flex justify-content-end">
+    <section>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav">
           <% if current_user %>
             <li class="nav-item">
               <div class="dropdown">
@@ -20,16 +18,11 @@
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <%= current_user.email %>
                 </a>
-
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                   <a class="dropdown-item" href="<%= videos_path %>"> My Videos</a>
                   <%= link_to('Logout', destroy_user_session_path, method: :delete,class: 'dropdown-item')%>
                 </div>
               </div>
-            </li>
-            <li class="nav-item">
-            </li>
-            <li class="nav-item">
             </li>
           <% else %>
             <li class="nav-item">
@@ -41,6 +34,6 @@
           <% end %>
         </ul>
       </div>
-    </div>
+    </section>
   </div>
 </nav>
