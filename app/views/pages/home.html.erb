@@ -1,13 +1,24 @@
 <div class="container">
   <% if current_user.nil? %>
-    <section class="jumbotron text-center">
+    <section class="text-center">
       <div class="container">
         <h1 class="jumbotron-heading">Share your videos to the World!</h1>
         <p class="lead text-muted">Be part of the VideoShare family now :)</p>
-        <p><a class="btn btn-outline-secondary my-2" href="/users/sign_up">Join Family</a></p>
+        <p><a class="btn btn-primary my-2" href="/users/sign_up">Join Family</a></p>
       </div>
     </section>
+    <% if @videos.any? %> <hr> <% end %>
+  <% elsif @videos.blank? %>
+    <section class="text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Wow, there are no videos here!</h1>
+        <p class="lead text-muted">Be the first to share a video ;D</p>
+        <p><a class="btn btn-primary my-2" href="<%= new_video_path %>">Share Video Now</a></p>
+      </div>
+    </section>
+    <% if @videos.any? %> <hr> <% end %>
   <% end %>
+
 
   <% if @videos.any? %>
     <div class="album">
