@@ -1,6 +1,7 @@
 class VideosController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :authenticate_user!
-  before_action :set_video, only: [:show, :edit, :update, :destroy]
+  before_action :set_video, only: [:show, :edit, :update, :destroy, :add_view]
 
   # GET /videos
   # GET /videos.json
@@ -60,6 +61,10 @@ class VideosController < ApplicationController
       format.html { redirect_to videos_url, notice: 'Video was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def add_view
+    @video.add_view
   end
 
   private
