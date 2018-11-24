@@ -12,10 +12,12 @@
       <% @videos.each_with_index do |video, index| %>
         <div class="col-md-6">
           <div class="card mb-4 shadow-sm">
-            <video id="<%= "video_#{index}" %>" class="video-js vjs-default-skin card-img-top"
-              controls preload="auto" width="600" height="225" poster="" data-setup="{}">
-              <source src="<%= video.url %>" type='application/vnd.apple.mpegurl'/>
-            </video>
+            <%= link_to(video) do %>
+              <video id="<%= "video_#{index}" %>" class="video-js vjs-default-skin video-off card-img-top"
+                controls preload="auto" width="600" height="225" data-setup="{}">
+                <source src="<%= video.url %>" type="application/vnd.apple.mpegurl"/>
+              </video>
+            <% end %>
             <div class="card-body">
             <h5 class="card-title"><%= video.name %></h5>
               <div class="d-flex justify-content-between align-items-center">

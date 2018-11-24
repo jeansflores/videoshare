@@ -3,5 +3,9 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :videos
+  resources :videos do
+    member do
+      post :add_view
+    end
+  end
 end
