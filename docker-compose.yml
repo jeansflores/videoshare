@@ -12,11 +12,11 @@ services:
     volumes:
       - ~/.docker/postgres/data:/var/lib/postgresql/data
     networks:
-      vpcbr:
+      net:
         ipv4_address: 10.5.0.2
 
 networks:
-  vpcbr:
+  net:
     driver: bridge
     ipam:
       config:

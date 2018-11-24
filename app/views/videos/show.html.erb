@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="album">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="card mb- shadow-sm">
+            <video id="video_player" class="video-js vjs-default-skin video-full card-img-top"
+              controls preload="auto" data-setup="{}">
+              <source src="<%= @video.url %>" type="application/vnd.apple.mpegurl"/>
+            </video>
+            <div class="card-body">
+            <h5 class="card-title"><%= @video.name %></h5>
+              <div class="d-flex justify-content-between">
+                <small>published by: <b><%= @video.user.email %></b></small>
+                <div class="d-flex justify-content-end">
+                  <span id="views"><%= "#{@video.views}"%></span>
+                  <small class="text-muted">views</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var viewed = false
+  var videoAddView = '<%= add_view_video_path(@video) %>'
+  var player = videojs('video_player');
+
+  player.on('play',function(){
+    if(!viewed){
+      viewed = true
+      $.post(videoAddView, function(data) {})
+    }
+  })
+</script>

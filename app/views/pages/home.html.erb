@@ -1,0 +1,41 @@
+<div class="container">
+  <% if current_user.nil? %>
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Share your videos to the World!</h1>
+        <p class="lead text-muted">Be part of the VideoShare family now :)</p>
+        <p><a class="btn btn-outline-secondary my-2" href="/users/sign_up">Join Family</a></p>
+      </div>
+    </section>
+  <% end %>
+
+  <% if @videos.any? %>
+    <div class="album">
+      <div class="d-flex justify-content-between">
+        <span><strong>Public Videos</strong></span>
+      </div>
+      <br>
+      <div class="row">
+        <% @videos.each_with_index do |video, index| %>
+          <div class="col-md-6">
+            <div class="card mb-4 shadow-sm">
+              <%= link_to(video) do %>
+                <video id="<%= "video_#{index}" %>" class="video-js vjs-default-skin video-off card-img-top"
+                  controls preload="auto" width="600" height="225" data-setup="{}">
+                  <source src="<%= video.url %>" type="application/vnd.apple.mpegurl"/>
+                </video>
+              <% end %>
+              <div class="card-body">
+              <h5 class="card-title"><%= video.name %></h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small>published by: <b><%= video.user.email %></b></small>
+                  <small class="text-muted"><%= "#{video.views} views"%></small>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
