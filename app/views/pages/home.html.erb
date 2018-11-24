@@ -31,7 +31,7 @@
           <div class="col-md-6">
             <div class="card mb-4 shadow-sm">
               <%= link_to(video) do %>
-                <video id="<%= "video_#{index}" %>" class="video-js vjs-default-skin video-off card-img-top"
+                <video id="<%= "video_#{index}" %>" class="video-js vjs-default-skin card-img-top"
                   preload="auto" width="100%" height="225" data-setup="{}">
                   <source src="<%= video.url %>" type="application/vnd.apple.mpegurl"/>
                 </video>
