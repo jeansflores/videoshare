@@ -2,13 +2,13 @@
   <div class="album">
     <div class="row">
         <div class="col-md-12">
-          <div class="card mb- shadow-sm">
+          <div class="card mb shadow-sm">
             <video id="video_player" class="video-js vjs-default-skin video-full card-img-top"
-              autoplay controls preload="auto" data-setup="{}">
+              autoplay controls preload="true" with="100%" data-setup="{}">
               <source src="<%= @video.url %>" type="application/vnd.apple.mpegurl"/>
             </video>
             <div class="card-body">
-            <h5 class="card-title"><%= @video.name %></h5>
+              <h5 class="card-title"><%= @video.name %></h5>
               <div class="d-flex justify-content-between">
                 <small>published by: <b><%= @video.user.email %></b></small>
                 <div class="d-flex justify-content-end">
