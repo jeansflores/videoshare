@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :videos do
     member do
-      post :add_view
+      get :add_view
     end
   end
 end

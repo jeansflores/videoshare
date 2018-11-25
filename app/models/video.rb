@@ -2,7 +2,7 @@ class Video < ApplicationRecord
   belongs_to :user
 
   validates :name, :url, presence: :true
-  validate :format_url
+  validate :format_url, if: :url
 
   def add_view
     self.views += 1

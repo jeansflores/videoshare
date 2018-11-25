@@ -2,6 +2,7 @@ class VideosController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :authenticate_user!, except: :show
   before_action :set_video, only: [:show, :edit, :update, :destroy, :add_view]
+  before_action :is_owner?, only: [:destroy, :update]
 
   def index
     @videos = Video.where(user: current_user)
@@ -56,11 +57,21 @@ class VideosController < ApplicationController
   end
 
   private
-    def set_video
-      @video = Video.find(params[:id])
-    end
 
-    def video_params
-      params.require(:video).permit(:name, :url, :user_id)
+  def set_video
+    @video = Video.find(params[:id])
+  end
+
+  def video_params
+    params.require(:video).permit(:name, :url, :user_id)
+  end
+
+  def is_owner?
+    unless current_user == @video.user
+      respond_to do |format|
+        format.json { render json: false, status: :forbidden }
+        format.html { redirect_to main_app.root_url }
+      end
     end
+  end
 end
