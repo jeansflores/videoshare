@@ -1,6 +1,10 @@
 <div class="container">
   <div class="album">
-    <% if notice.present? %><p id="notice"><%= notice %></p><% end%>
+    <% if notice.present? %>
+      <div class="alert alert-success" role="alert">
+        <span id="notice"><%= notice %></span>
+      </div>
+    <% end%>
     <div class="container d-flex justify-content-between">
       <h3>My Videos</h3>
       <div class="d-flex justify-content-end align-items-center">
@@ -23,7 +27,7 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <%= link_to 'Edit', edit_video_path(video), class: "btn btn-sm btn-outline-secondary" %>
-                  <%= link_to 'Destroy', video, method: :delete,
+                  <%= link_to 'Delete', video, method: :delete,
                     data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-danger" %>
                 </div>
                 <small class="text-muted"><%= "#{video.views} views"%></small>

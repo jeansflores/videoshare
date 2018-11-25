@@ -14,7 +14,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'mini_racer', platforms: :ruby
+gem 'mini_racer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -55,6 +55,8 @@ group :test do
   # Custom
   gem "factory_bot_rails"
   gem "ffaker"
+  gem 'launchy'
+  gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'shoulda'
 end
@@ -72,5 +74,4 @@ gem 'simple_form'
 group :development, :test do
   gem 'pry'
   gem 'pry-rails'
-  gem 'rspec-rails'
 end
