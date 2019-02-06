@@ -24,14 +24,7 @@
 </div>
 
 <script>
-  var viewed = false
-  var videoAddView = '<%= add_view_video_path(@video) %>'
-  var player = videojs('video_player');
-
-  player.on('play',function(){
-    if(!viewed){
-      viewed = true
-      $.get(videoAddView, function(data) {})
-    }
+  videojs('video_player').on('play', function(){
+    $.get('<%= add_view_video_path(@video) %>')
   })
 </script>
